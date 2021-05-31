@@ -29,7 +29,6 @@ export default class Results extends Component {
   }
     
   render() {
-    console.log(this.state.result)
     const renderTable = this.state.result.length ?
      this.state.result.map(({ timeStamp, from, to, value, confirmations, hash }={}, index) =>  
       <Row key={index} oddRow={index%2}>
@@ -48,12 +47,12 @@ export default class Results extends Component {
     return (
       <div className='container table-container'>
         <Row title>
-          <Timestamp>Time Stamp:</Timestamp>
-          <FromAddress>From:</FromAddress>
-          <ToAddress>To:</ToAddress>
-          <ValueOfTransaction> Value: </ValueOfTransaction>
-          <Confirmations>Confirmations: </Confirmations>
-          <Hash>hash: </Hash> 
+          <Timestamp>Time Stamp</Timestamp>
+          <FromAddress>From</FromAddress>
+          <ToAddress>To</ToAddress>
+          <ValueOfTransaction> Value </ValueOfTransaction>
+          <Confirmations>Confirmations </Confirmations>
+          <Hash>Hash </Hash> 
         </Row>
         {renderTable}
       </div>
