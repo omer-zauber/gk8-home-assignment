@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import Results from './Results/Results';
+import QueryAddress from './QueryAddress/QueryAddress'
 
-function App() {
-  return (
+export default class App extends Component {
+  state = {
+    queriedAddress: ''
+  }
+
+  submitQueryAddress = (queryStringInput) => {
+    this.setState({queriedAddress: queryStringInput})
+  }
+  render() {
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <QueryAddress submitQueryAddress={this.submitQueryAddress} />
+      <Results queriedAddress={this.state.queriedAddress}/>
     </div>
   );
 }
+};
 
-export default App;
